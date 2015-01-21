@@ -1,0 +1,400 @@
+% -------------------------------------------------------------------
+%  @LaTeX-style-file{
+%     FILENAME    = "HYUstyle.sty",
+%     DATE        = "2015 January 21",
+%     VERSION     = "1.0",
+%     ENCODING    = "ISO/ASCII",
+%     KEYWORDS    = "XeLaTeX, Dissertation, Korean, Hanyang, Template, Style",
+%     docstring   = "Style file for a Hanyang University dissertation"
+%     support     = "send email to Seongjin Lee, insight@hanyang.ac.kr",
+% --------------------------------------------------------------------
+
+
+\ProvidesPackage{style/HYUstyle}
+
+\RequirePackage{kotex}
+
+% School name and location
+\university{Hanyang Univeristy}
+\universityKor{한양대학교}
+\universitycity{Haengdangdong 17, Seongdonggu}
+\universitystate{Seoul}
+
+% School color can be found in http://www.hanyang.ac.kr/user/indexSub.action?codyMenuSeq=1865&siteId=hanyangkr2&menuType=T&uId=1&sortChar=ADAC&menuFrame=left&linkUrl=01_04_01_03.html&mainFrame=right
+\definecolor{SchoolColor}{rgb}{0.11372549, 0.141176471, 0.458823529} % Hanyang Blue 
+\definecolor{chaptergrey}{rgb}{0.247058824, 0.239215686, 0.258823529} % Hanyang Gray
+\definecolor{midgrey}{rgb}{0.576470588, 0.576470588, 0.588235294}     % Hanyang Platinum Silver
+\definecolor{RoyalRed}{RGB}{157,16,45}
+
+%%%% hyper reference setup
+\hypersetup{ 
+    pdfpagetransition={Wipe}, %
+    colorlinks, %
+    citecolor=SchoolColor, %
+    filecolor=black, %
+    linkcolor=black, %
+    pdfstartview={FitB}, %
+    pdfpagelayout={SinglePage}, %
+    urlcolor=SchoolColor, %
+    pdfdisplaydoctitle=true, %
+    pdftoolbar=false, %
+    pdfcenterwindow, %
+    pdffitwindow, %
+    xetex, %
+}
+
+%%%% Margin setting
+\usepackage{geometry}
+\geometry{a4paper, total={210mm,297mm}, top=43mm, bottom=43mm, left=35mm, right=35mm, includeheadfoot,}
+
+%%%% indenting for each paragraph
+\setlength{\parindent}{2em}
+
+%%%% Line spacing
+\RequirePackage{setspace}
+\doublespace
+
+
+%%%% font size
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize{11}{14}%
+   \abovedisplayskip 11pt \@plus 2pt \@minus 5pt
+}
+\renewcommand\tiny{\@setfontsize\tiny{5}{6}}
+\renewcommand\scriptsize{\@setfontsize\scriptsize{7}{8}}
+\renewcommand\footnotesize{\@setfontsize\footnotesize{8}{9}}
+\renewcommand\small{\@setfontsize\small{10}{11}}
+\renewcommand\large{\@setfontsize\large{12}{16}}
+\renewcommand\Large{\@setfontsize\Large{15}{17}}
+\renewcommand\LARGE{\@setfontsize\LARGE{16}{20}}
+\renewcommand\huge{\@setfontsize\huge{20}{24}}
+\renewcommand\Huge{\@setfontsize\Huge{24}{36}}
+
+
+%%%% Formatting guidelines found in  http://www.hanyang.ac.kr/hboard/Board_Load_Data?board_cd=101520&seq=419513&refer=37&ansorder=0&serch_term=&action=READ
+%%%% but REMEMBER that they are only there as a guide.
+%%%% You have to decide with professor about the final style.
+
+\renewcommand{\frontmatter}{
+	\input{frontmatter/manuscript_info}
+	\maketitle
+        \submissionpage
+        
+	
+	%%%% Use following line if you DID NOT GET THE APPROVALS from the professors
+        \approvalpage 
+
+	%%%% Use following line if you GOT THE APPROVALS from the professors
+	% \approvalpageSigned 
+
+	\copyrightpage
+        \settableofcontents
+        \tableofcontents
+        \listoftables
+        \listoffigures
+	\abstractpage
+	\dedicationpage
+}
+
+\renewcommand{\backmatter}{
+	\acknowledgments
+        \abstractpagekor
+
+	%%%% Use following line BEFORE signing the ethical declaration form
+        % \ethicalkor 
+        % \ethicaleng 
+
+	%%%% Use following line AFTER signing the ethical declaration form
+        \ethicalkorSigned 
+        \ethicalengSigned  
+}
+
+
+\renewcommand{\maketitle}{
+        \rm \onehalfspacing 
+	\thispagestyle{empty}
+        \newgeometry{total={210mm,297mm}, top=25mm, bottom=30mm, left=30mm, right=30mm, includeheadfoot}
+	\begin{center}
+        {\LARGE \bfseries Thesis for the degree of \@degree \\}
+        \vspace{15mm}
+	{\huge \textcolor{SchoolColor}{\\ \bfseries \thetitle} }  \\
+        \vfill
+        {\LARGE \bfseries  \theauthor \\ }
+	\vspace{30mm}
+        {\LARGE \bfseries  \@department\\ \@university \\}
+	\vspace{25mm}
+        {\LARGE \bfseries  \@degreemonth\ \@degreeyear}
+	\end{center} 
+        \restoregeometry
+}
+
+\newcommand{\submissionpage}{
+        \newgeometry{total={210mm,297mm}, top=25mm, bottom=30mm, left=25mm, right=25mm, includeheadfoot}
+	\thispagestyle{empty}
+	\begin{center}
+        {\LARGE \bfseries  Thesis for the degree of \@degree\\}
+        \vspace{0mm}
+        \hspace{2cm}	{\huge \textcolor{SchoolColor}{\\ \bfseries \thetitle} } \\
+        \vfill
+        {\LARGE \bfseries Thesis Supervisor: \@advisor  \\ }
+	\vspace{10mm}
+        \hspace{25mm}
+        {\LARGE  \bfseries \raggedright
+A thesis submitted to the graduate school of \@university \ in partial fulfillment of the requirements for the degree of \@degree \\ }
+	\vspace{25mm}
+        {\LARGE \bfseries  \theauthor \\ }
+	\vspace{5mm}
+        {\LARGE \bfseries  \@degreemonth\ \@degreeyear \\}
+	\vspace{5mm}
+        {\LARGE \bfseries  Department of \@programname\\ \@department\\ \@university }
+	\end{center} 
+        \restoregeometry
+}
+
+\newcommand{\approvalpage}{
+	\thispagestyle{empty}
+        \newgeometry{total={210mm,297mm}, top=25mm, bottom=40mm, left=25mm, right=25mm, includeheadfoot}
+	\begin{center}
+        {\LARGE \bfseries  This thesis, written by \theauthor, \\ has been approved as a thesis for the \@degree .\\}
+        \vspace{25mm}
+        {\LARGE \bfseries \@degreemonth\ \@degreeyear \\}
+        \vspace{15mm}
+        \hspace{25mm}
+\begin{center}
+        \begin{tabular}{llcr}
+	  {\Large \hspace{1em}\bfseries Committee Chairman} & {\Large \bfseries :~} & \hspace{1em}{{\Large \bfseries \@committeeChair}} & {\large \bfseries (Signature)} \\  \cline{3-4}
+	  \rule{0pt}{40pt} {\Large \hspace{1em}\bfseries Committee Member} & {\Large \bfseries :~} \hfill & \hspace{1em}{{\Large \bfseries \@committeeOne}} & {\large \bfseries (Signature)} \\  \cline{3-4}
+	  \rule{0pt}{40pt} {\Large \hspace{1em}\bfseries Committee Member} & {\Large \bfseries :~} & \hspace{1em}{{\Large \bfseries  \@committeeTwo}} & {\large \bfseries (Signature)} \\  \cline{3-4}
+	  \rule{0pt}{40pt} {\Large \hspace{1em}\bfseries Committee Member} & {\Large \bfseries :~} & \hspace{1em}{{\Large \bfseries \@committeeThree}} & {\large \bfseries (Signature)} \\  \cline{3-4}
+	  \rule{0pt}{40pt} {\Large \hspace{1em}\bfseries Committee Member} & {\Large \bfseries :~} & \hspace{1em}{{\Large \bfseries \@committeeFour}} & {\large \bfseries (Signature)} \\  \cline{3-4}
+        \end{tabular}\end{center}
+        \vspace*{\fill}
+        {\LARGE  \bfseries \@department\\ \@university }
+	\end{center} 
+        \restoregeometry
+}
+
+\newcommand{\approvalpageSigned}{
+	\thispagestyle{empty}
+        \newgeometry{total={210mm,297mm}, top=0mm, bottom=0mm, left=0mm, right=0mm, includeheadfoot}
+	\includegraphics[clip=true,trim=0.5cm 3cm 0cm 0cm]{frontmatter/approval_sigend_all.pdf}
+        \restoregeometry
+}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	%\ 
+	\vspace*{\fill}
+	{\fontspec[Color=NavyBlue]{Warnock Pro} \addfontfeature{Contextuals=Swash}
+	\addfontfeature{ItalicFeatures={Alternate = 1}}
+	\scshape 
+	\itshape
+	%\noindent {\copyright \ Copyright by \theauthor, \@degreeyear. All rights reserved. }
+	\noindent {\copyright 2015\hspace{3pt}-- \theauthor, all rights reserved. }
+        }
+	\vspace*{\fill} 
+	%\
+	\newpage
+	\rm \doublespace
+}
+
+\newcommand{\abstractpage}{
+	\vspace*{35pt}
+        \chapter*{\hfill \Large Abstract \hfill}
+        \addcontentsline{toc}{chapter}{Abstract}
+	\begin{center}
+	%{\LARGE \scshape \bfseries Abstract} \\ 
+        \vspace{0cm}\rm
+	\textcolor{SchoolColor}{\Large \@title} \normalsize \\
+	\vspace*{16pt}
+	
+	%%%% If you wish to print out your name program and department, etc
+	%%%% uncomment the following lines
+        % \begin{table}[h!]\begin{flushright}
+        % \begin{tabular}{r}
+        %              \@author       \\
+        %              \@programname  \\
+        %              \@department   \\ 
+        %              \@university   \\
+        %\end{tabular}\end{flushright}
+        %\end{table} 
+
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+}
+
+
+\newcommand{\abstractpagekor}{
+	\vspace*{35pt}
+        \chapter*{\hfill \Large 국문요지 \hfill}
+        \addcontentsline{toc}{chapter}{국문요지}
+	\begin{center}
+        \vspace{0cm}\rm
+	\textcolor{SchoolColor}{\Large \@titleKor} \normalsize \\
+	\vspace*{16pt}
+         \begin{table}[h!]\begin{flushright}
+         \begin{tabular}{r}
+                      \@authorKor       \\
+                      \@programnameKor  \\
+                      \@universityKor ~  \@departmentKor \\
+        \end{tabular}\end{flushright}
+        \end{table} 
+	\end{center}
+	\input{frontmatter/abstract_kor}
+	\vspace*{\fill}
+}
+
+
+\newcommand{\dedicationpage}{
+	\newpage %\thispagestyle{fancy} 
+        \vspace*{60mm}
+	{\fontspec[Color=NavyBlue]{Warnock Pro} %
+	          \addfontfeature{Contextuals=Swash} %
+	          \addfontfeature{ItalicFeatures={Alternate = 1}} %
+	          \scshape \itshape \noindent  %
+		  \input{frontmatter/dedication}  %
+	}
+	\vspace*{\fill} \newpage \rm
+}
+
+
+
+\newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
+        \addcontentsline{toc}{chapter}{Acknowledgments}
+	\noindent \doublespacing
+	\input{frontmatter/thanks}
+	\vspace*{\fill}
+}
+
+
+
+
+\newcommand{\settableofcontents}{
+	\pagenumbering{roman}
+	\setcounter{page}{1}
+
+	%%%% Changing the names in table of contents 
+        \renewcommand{\contentsname}{Table of Contents}
+        \renewcommand{\listtablename}{List of Tables}
+        \renewcommand{\listfigurename}{List of Figures}
+
+
+       \setcounter{secnumdepth}{3}
+        \setcounter{tocdepth}{2}
+
+        %%%% Leaders for chapter entries
+        \renewcommand\cftchapdotsep{\cftdotsep}
+
+        %%%% Redefine representation for chapter (and section) counters
+	%%%% To change the font uncomment and change the font in fontspec{Latin Modern Math}
+	\renewcommand\thechapter{{%\fontspec{Latin Modern Math}
+	                           \arabic{chapter}}}
+	\renewcommand\thesection{{%\fontspec{Latin Modern Math} 
+	                           \arabic{chapter}.\arabic{section}}}
+        \renewcommand\thesubsection{{ %\fontspec{Latin Modern Math} 
+	     \arabic{chapter}.\arabic{section}.\arabic{subsection}}}
+        \renewcommand\thesubsubsection{{ %\fontspec{Latin Modern Math} 
+	     \arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}}
+
+	%%%% chapter styling 
+	\titleformat{\chapter} % command
+	[display] % shape
+	{\bfseries \Large} % format
+	{\vspace{15ex}\flushright \Large \MakeUppercase {\chaptertitlename} \hspace{1ex} 
+	  {\color{SchoolColor}\fontsize{60}{60}\selectfont\thechapter}} % label
+	{-2.5ex} % sep
+	{\bfseries \flushleft \huge } % before-code
+	[] % after-code
+
+        \titleformat{\section}[hang]
+        {\RaggedRight\Large\bfseries}
+        {\thesection.}{1ex}{}
+ 
+        \titleformat{\subsection}[hang]
+        {\RaggedRight\Large\bfseries}
+        {\thesubsection.}{1ex}{}
+ 
+        \titleformat{\subsubsection}[hang]
+        {\RaggedRight\Large\bfseries}
+        {\thesubsubsection.}{1ex}{}
+ 
+        \titlespacing{\chapter}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+        \titlespacing{\section}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+        \titlespacing{\subsection}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+        \titlespacing{\subsubsection}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+}
+
+
+%%%% used before signing the ethical conduct form
+\newcommand{\ethicalkor}{
+        \newgeometry{total={210mm,297mm}, top=0mm, bottom=20mm, left=30mm, right=30mm, includeheadfoot}
+        \vspace{4cm}
+	\chapter*{\hfill \LARGE 연구윤리 서약서\hfill}
+        \addcontentsline{toc}{chapter}{연구윤리 서약서}
+        %\addcontentsline{toc}{chapter}{ethi}
+        \vspace{2cm}
+        \Large
+        \doublespacing
+	\input{endmatter/ethical_cond_kor.tex} \\
+        \vfill
+        {\hfill 20XX년 XX월 XX일 } \hspace{20ex}  \\
+        \begin{table}[h!]\begin{flushright}
+	    \begin{tabular}{lll}
+	  {\rule{0pt}{20pt} \Large 학~~위~~명} & : & {\Large \@degreeKor  }      \\ 
+	  {\rule{0pt}{20pt} \Large 학\quad\quad과}& : & {\Large \@programnameKor }  \\
+	  {\rule{0pt}{20pt} \Large 지도교수} & : & {\Large \@advisorKor  }      \\
+	  {\rule{0pt}{20pt} \Large 성\quad\quad명} & : & {\Large \@authorKor }\hspace{7ex} {\Large (서명)} \\
+        \end{tabular}\end{flushright}
+        \end{table} 
+        \thispagestyle{empty}
+        \vspace{1cm} \\
+        \@universityKor 대학원장 귀하
+        \vspace{2cm} \\
+        \restoregeometry
+}
+
+%%%% used before signing the ethical conduct form
+\newcommand{\ethicaleng}{
+        \newgeometry{total={210mm,297mm}, top=00mm, bottom=20mm, left=30mm, right=30mm, includeheadfoot}
+        %\vspace{4cm}
+	\chapter*{\hfill \LARGE Declaration of Ethical Conduct in Research \hfill}
+        \addcontentsline{toc}{chapter}{Declaration of Ethical Conduct in Research}
+        \vspace{1cm}
+        \Large
+	\input{endmatter/ethical_cond_eng.tex} 
+        \vfill
+        {\hfill 20XX-XXX-XX } \hspace{20ex}  \\
+        \begin{table}[h!]\begin{flushleft}
+        \begin{tabular}{lll}
+	  {\rule{0pt}{20pt} \Large Degree} & : & {\Large \@degree }    \\ 
+	  {\rule{0pt}{20pt} \Large Department}& : & {\Large \@programname }       \\
+	  {\rule{0pt}{20pt} \Large Thesis Supervisor} & : & {\Large \@advisor }         \\
+	  {\rule{0pt}{20pt} \Large Name} & : & {\Large \@author } {\hspace{3ex}\Large (Signiture)} \\
+        \end{tabular}\end{flushleft}
+        \end{table} 
+        \thispagestyle{empty}
+        %\vspace{3cm} \\
+        \singlespacing
+        \restoregeometry
+}
+
+%%%% used after signing the ethical conduct form
+\newcommand{\ethicalkorSigned}{
+	%\thispagestyle{empty}
+        \newgeometry{total={210mm,297mm}, top=20mm, bottom=43mm, left=20mm, right=20mm, includeheadfoot}
+        \addcontentsline{toc}{chapter}{연구윤리 서약서}
+	\includegraphics[scale=0.8,clip=true,trim=1cm 2.5cm -0.5cm 1cm]{endmatter/ethical_kor-signed.pdf} % trim left bottom right top
+        \restoregeometry
+}
+
+%%%% used after signing the ethical conduct form
+\newcommand{\ethicalengSigned}{
+	%\thispagestyle{empty}
+        \newgeometry{total={210mm,297mm}, top=20mm, bottom=43mm, left=20mm, right=20mm, includeheadfoot}
+        \addcontentsline{toc}{chapter}{Declaration of Ethical Conduct in Research}
+	\includegraphics[scale=0.8,clip=true,trim=1cm 2.5cm 0cm 1cm]{endmatter/ethical_eng-signed.pdf}
+        \restoregeometry
+}

@@ -1,0 +1,28 @@
+\begin{savequote}[90mm]
+  {\QuoteFont Sed cursus lectus quis odio. Phasellus arcu. Praesent
+  imperdiet dui in sapien.}
+\qauthor{- Fusce Proin}
+\end{savequote}
+
+\chapter{Example of Subfigure}
+\label{chap:chapter_02}
+
+\lipsum[1]
+
+\begin{figure}[tp]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{./figures/figure2}
+ \caption{Buffered Random 4KB Write}\label{fig:SAF:buf_4k_RW} 
+\end{subfigure} \hfil
+\begin{subfigure}[b]{0.48\textwidth}
+  \includegraphics[width=\textwidth]{./figures/figure2}
+ \caption{Random Write 4KB + \texttt{fsync()}} 
+ \label{fig:SAF:4k_fsync}
+\end{subfigure} \hfil
+ \caption{Random Write Performance}
+ \label{fig:SAF:motivation}
+\end{figure}
+
+
+\lipsum[1-4]

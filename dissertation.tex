@@ -1,0 +1,40 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[School=HYU]{DissertationHYU}
+
+\begin{document}
+
+% the front matter
+\frontmatter 
+
+
+% the main matter
+\mainmatter
+\doublespacing
+\floatpagestyle{plain}
+% include each chapter with \include{} 
+
+ \include{chapters/chapter_01}
+ \include{chapters/chapter_02}
+ \include{chapters/chapter_03}
+ \include{chapters/chapter_04}
+ \include{chapters/conclusion}
+
+% appendix, if available
+
+ \begin{appendices}
+ \include{chapters/appendix_00}
+ \end{appendices}
+
+\singlespacing
+
+% the back matter
+\clearpage
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+
+\backmatter % for acknowldegement and declaration of ethical conduct
+
+\end{document}

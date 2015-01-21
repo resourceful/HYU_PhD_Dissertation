@@ -1,0 +1,64 @@
+\begin{savequote}[90mm]
+  {\QuoteFont Praesent metus ligula, auctor vitae, lacinia sed.}
+\qauthor{- Chao Chao}
+\end{savequote}
+
+\chapter{Example of Math}
+\label{chap:chapter_04}
+
+Mauris mollis condimentum risus. Integer ipsum. Quisque
+malesuada, erat ac dictum pulvinar, magna nisl fermentum ligula,
+quis euismod mauris felis non diam. Nullam sapien turpis, rutrum
+vel, condimentum ac, bibendum vulputate, nulla. Vestibulum tortor
+ipsum, fermentum egestas, placerat ut, vulputate et, wisi. Aliquam
+erat volutpat. Each element is defined as $t_{seek}$,$t_{rot}$, and
+$t_{trans}$, respectively. Donec consequat, ligula sit amet tincidunt aliquam,
+nunc lorem sagittis nunc, a ullamcorper erat ante ac felis. Donec
+eleifend. Nullam quam leo, lobortis non, condimentum at, tempus
+consectetuer, orci. Quisque ut lorem.  Vestibulum ante ipsum primis
+in faucibus orci luctus et ultrices posuere cubilia Curae; Donec
+porta, libero eget feugiat posuere, felis arcu pulvinar odio, vel
+dapibus enim dui nec turpis. \begin{equation}
+\label{eq:attf}
+t_{HDD}(f_{n}) = t_{seek}(f_{n}) +t_{rot}(f_{n}) + t_{trans}(f_{n})
+\end{equation}
+Suspendisse porta, dolor sed fringilla
+ultrices, augue mauris gravida dolor, vel sollicitudin magna dui sit
+amet nunc. 
+
+ 
+Donec nisl. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. More
+detailed description of the expressions is found in \cite{miner,CloSpan}. Let
+$F=\{ f_{1}, ~ f_{2}, ..., ~ f_{n} \}$ be a set of all files accessed during
+launch of an application.  A sequence 
+$\sigma = < s_{1}, ~ s_{2}, ..., ~ s_{i} >$ 
+is an ordered list and is a subset of $F$ such that 
+$\{ s_{n} \sqsubseteq F \}$. 
+Given two sequences 
+$\alpha = < a_{1}, ~ a_{2}, ..., ~ a_{n} >$ and 
+$\beta = < b_{1}, ~ b_{2}, ..., ~ b_{m} >$, sub-sequence is defined as follows:
+Sequence  $\alpha$ is a sub-sequence of another sequence $\beta$, if and only
+if there exist $i_{1}, ~ i_{2}, \ldots, ~ i_{m}$ such that 
+$1 \le i_{1} < i_{2} < \ldots < i_{m} \le n$  and 
+$a_{1} \subseteq b_{i1},  ~ a_{2} \subseteq b_{i2} , \ldots and  a_{m} \subseteq b_{im}$. 
+If $\alpha \neq \beta$ then it is denoted as $ \alpha \subset \beta $. 
+If files in sequence $\alpha$ are in the
+same order as sequence $\beta$, then we call $\beta$ a super-sequence of
+$\alpha$.  A sequence database, 
+$D = \{ \sigma_{1}, ~ \sigma_{2}, ..., ~ \sigma_{i} \}$, 
+is a set of sequences, and $|D|$ is the number of sequences in
+the database $D$. The support of a sequence $\alpha$ in $D$ is the number of
+sequences of $D$ which contains $\alpha$ as a subsequence. We define frequent
+sub-sequence as sequences with the support greater than or equal to $min\_sup$,
+where $min\_sup$ is the minimum support threshold.
+
+{\bfseries \noindent Example 1.} Suppose a database $D$ with $|D| = 5$ has the
+following set of sequences $\{ ab, ~ acde, ~ bcdf, ~ abcd, ~ abcf \}$. Then, 2
+is the support of $abc$ and 3 is the support of $ac$ in $D$. Suppose 
+$min\_sup = 3$, then $abc$ is not a frequent sub-sequence but $ac$ is a frequent
+sub-sequence. $\blacksquare$
+
+
+ 
+
+\lipsum[1-4]
