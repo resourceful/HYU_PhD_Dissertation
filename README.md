@@ -25,6 +25,12 @@ This package provides all the files needed to typeset the PhD disseratation at H
 * script: a script file to build the dissertation
 * fonts_dissertation: in case you don't have the fonts used in the dissertation template
 
+## Installing the fonts in Linux
+* Make symbolic link of the font files to font directory using following command
+  and create font cache
+* sudo ln -s PATH_TO/HYU_PhD_Dissertation/fonts_dissertation /usr/share/fonts/fonts_dissertation
+* sudo fc-cache -fv
+
 ## Build
  ./script/build.disseration
 
