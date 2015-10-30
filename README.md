@@ -28,9 +28,29 @@ This package provides all the files needed to typeset the PhD disseratation at H
 ## Installing the fonts in Linux
 * Make symbolic link of the font files to font directory using following command
   and create font cache
-* sudo ln -s PATH_TO/HYU_PhD_Dissertation/fonts_dissertation /usr/share/fonts/fonts_dissertation
-* sudo fc-cache -fv
+```
+  $ sudo ln -s PATH_TO/HYU_PhD_Dissertation/fonts_dissertation /usr/share/fonts/fonts_dissertation
+  $ sudo fc-cache -fv
+```
 
 ## Build
- ./script/build.disseration
+```
+   $ ./script/build.disseration
+```
+
+## Notes
+* Note that this template does not contain all the fonts used in the template
+  because of the liscence issues. Please do check and change them as you like.
+* You might have to install jiwonlipsum.sty which is the Korean version of
+  lipsum.sty. 
+* You can install by following command in Linux 
+```
+  $ sudo tlmgr install jiwonlipsum 
+```
+* If you have trouble locating the repository, then following lines may be
+  useful.
+```
+  $ sudo tlmgr repository add http://ftp.ktug.org/KTUG/texlive/tlnet ktug
+  $ sudo tlmgr pinning add ktug "*"
+```
 
