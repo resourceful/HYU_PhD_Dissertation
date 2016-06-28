@@ -53,4 +53,13 @@ This package provides all the files needed to typeset the PhD disseratation at H
   $ sudo tlmgr repository add http://ftp.ktug.org/KTUG/texlive/tlnet ktug
   $ sudo tlmgr pinning add ktug "*"
 ```
+* Before signing the ethical declaration form, you could use a dummy form 
+  provided in the template. The TeX code to configure is defined in 
+  \backmatter section in ./style/HYUstle.sty file. The default is a dummy 
+  pdf file. After signing the form, replace the pdf in following directory
+  to use the signed ethical form to your dissertation.
+```
+  ./endmatter/ethical_kor-signed.pdf
+  ./endmatter/ethical_eng-signed.pdf
+```
 
